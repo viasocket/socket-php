@@ -1,0 +1,19 @@
+{
+    "name": "socket/socket",
+    "description": "Connect to flow on the viasocket.com",
+    "require": {
+        "php": "^5.3.3 || ^7.0"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Rahul Chordiya",
+            "email": "rahul@walkover.in"
+        }
+    ],
+    "autoload": {
+        "psr-0": {
+            "SoktApi\\": "src/"
+        }
+    }
+}
