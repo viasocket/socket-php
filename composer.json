@@ -1,5 +1,5 @@
 {
-    "name": "socket/socket",
+    "name": "socket/connect",
     "description": "Connect to flow on the viasocket.com",
     "require": {
         "php": "^5.3.3 || ^7.0"
