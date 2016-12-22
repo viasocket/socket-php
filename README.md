@@ -11,21 +11,27 @@ First of all, download the sdk by composer:
 
     composer require socket/connect
 
+    or add this into your composer.json   
+      "require": {
+              "socket/connect": "^1.0"
+          }
+
+
 Then, require composer autoload and use package in your code:
 
     require __DIR__ . '/vendor/autoload.php';
 
-    use SoktApi\SoktApiConnect;
+    use sokt\sokt;
 
 Once required, the last step is to initialize the SDK with your project name and project API Key:
 
-    $socket = new SoktApiConnect('PROJECT_NAME', 'AUTH_KEY');
+    $sokt = new sokt('PROJECT_NAME', 'AUTH_KEY');
 
 That's all, your SDK is set up! You can now use any block by copying the code snippet from the marketplace.
 
 ##Usage:
 
-    print_r($socket->call('Flow-Identifier', 'Flow Name', ['Name' => "Barney", 'Phone' => 2222]));
+    print_r($sokt->call('Flow-Identifier', 'Flow Name', ['Name' => "Barney", 'Phone' => 911]));
 
 The printed result will be:
 
@@ -36,7 +42,7 @@ The printed result will be:
         [response_url] => api.viasocket.com/response/xxxxxxxxxx.json
     )
 
-**Notice** that the `error` event will also be called if you make an invalid flow call (for example - the package you refer to does not exist).
+**Notice** that the `error` event will also be called if you make an invalid flow call (for example - the flow you refer to does not exist).
 
 
 ##Issues:

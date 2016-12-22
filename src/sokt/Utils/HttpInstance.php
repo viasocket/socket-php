@@ -1,6 +1,6 @@
 <?php
 
-namespace SoktApi\Utils;
+namespace sokt\Utils;
 
 class HttpInstance
 {
@@ -27,6 +27,12 @@ class HttpInstance
         $this->curlInstance = curl_init($url);
     }
 
+    //To validate JSON
+    public function isJson($string) {
+    	json_decode($string);
+     	return (json_last_error() == JSON_ERROR_NONE);
+    }
+
     /**
      * set Curl options
      *
@@ -38,13 +44,29 @@ class HttpInstance
     {
         curl_setopt($this->curlInstance, CURLOPT_HTTPHEADER, [
             'User-Agent SoktConnectAPI_PHP',
-            'Content-Type: multipart/form-data',
+            'Content-Type: application/json',
             "authkey: $key"
         ]);
 
+        if(is_array($args)){
+      		$post_json = json_encode($args);
+      	}
+      //To check if provided data is JSON string
+      	else if($this->isJson($args)){
+      		$post_json=$args;
+      	}
+      //if provided data is simple string.
+      	else
+      	{
+      		$prepareData['data']=$args;
+      		$post_json=	json_encode($prepareData);
+      	}
+
         curl_setopt($this->curlInstance, CURLOPT_POST, true);
 
-        curl_setopt($this->curlInstance, CURLOPT_POSTFIELDS, $args);
+        curl_setopt($this->curlInstance, CURLOPT_SSL_VERIFYPEER, true);
+
+        curl_setopt($this->curlInstance, CURLOPT_POSTFIELDS, $post_json);
 
         curl_setopt($this->curlInstance, CURLOPT_RETURNTRANSFER, true);
     }

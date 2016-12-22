@@ -1,10 +1,10 @@
 <?php
 
-namespace SoktApi;
+namespace sokt;
 
-use SoktApi\Utils\HttpInstance;
+use sokt\Utils\HttpInstance;
 
-class SoktApiConnect
+class sokt
 {
     /**
      * Creates a new SocketAPI Connect instance

@@ -9,7 +9,7 @@ class ComposerStaticInit102abbe2e015dd2d1e6222e3383be9a5
     public static $prefixesPsr0 = array (
         'S' =>
         array (
-            'SoktApi\\' =>
+            'sokt\\' =>
             array (
                 0 => __DIR__ . '/../..' . '/src',
             ),
@@ -17,7 +17,8 @@ class ComposerStaticInit102abbe2e015dd2d1e6222e3383be9a5
     );
 
     public static $classMap = array (
-        'SoktApi\\Utils\\HttpInstance' => __DIR__ . '/../..' . '/src/SoktApi/Utils/HttpInstance.php',
+        'sokt\\sokt' => __DIR__ . '/../..' . '/src/sokt/SoktApiConnect.php',
+        'sokt\\Utils\\HttpInstance' => __DIR__ . '/../..' . '/src/sokt/Utils/HttpInstance.php',
     );
 
     public static function getInitializer(ClassLoader $loader)

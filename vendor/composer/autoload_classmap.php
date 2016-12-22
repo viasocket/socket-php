@@ -6,5 +6,6 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'SoktApi\\Utils\\HttpInstance' => $baseDir . '/src/SoktApi/Utils/HttpInstance.php',
+    'sokt\\sokt' => $baseDir . '/src/sokt/SoktApiConnect.php',
+    'sokt\\Utils\\HttpInstance' => $baseDir . '/src/sokt/Utils/HttpInstance.php',
 );
